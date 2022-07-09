@@ -7,7 +7,7 @@
 # etc.
 # ?????????????????????????
 
-data = [[float(w) for w in q.split(",")] for q in open("data.csv").read().split("\n")]
+# data = [[float(w) for w in q.split(",")] for q in open("data.csv").read().split("\n")]
 
 def way(data,k,Debug=-1):
 	path = []
@@ -32,16 +32,16 @@ def way(data,k,Debug=-1):
 			bestWeight = None
 			currWeight=None
 			for checkHouse in lens[currentHouse]:
-				if currentHouse == 0:
-					homeWay = lens[checkHouse][currentHouse]
-				else:
-					homeWay = lens[currentHouse][0]
+				# if not (checkHouse==0 and len(data)-1-buildingsDone>=k):
+				if len(data)-1-buildingsDone<=k or currentHouse==0:homeWay=1	
+				else:homeWay = lens[currentHouse][0]
 
 				currWeight = (homeWay**(k/2-boxGiven))/lens[currentHouse][checkHouse]
-				if ((bestWeight == None or currWeight >= bestWeight) and not (checkHouse != 0 and checkHouse in path)):
+				if ((bestWeight == None or currWeight >= bestWeight) and not (checkHouse != 0 and checkHouse in path) and not (checkHouse==0 and homeWay==1)):
 					bestDestination = checkHouse
 					bestWeight = currWeight
 				if Debug>=1:print('[log]:',currentHouse,checkHouse,homeWay,currWeight,'|',bestDestination,bestWeight)
+					
 			if Debug>=0:print("[info]:gone to", bestDestination,",", len(data)-1-buildingsDone, "left")
 			if bestDestination!=None:
 				fullLen+=lens[currentHouse][bestDestination]
@@ -52,4 +52,4 @@ def way(data,k,Debug=-1):
 	if Debug>=0:print(path,fullLen)
 	return path,fullLen
 
-print(way(data=data,k=3,Debug=0))
+# way(data=data,k=5,Debug=10)

@@ -12,6 +12,7 @@ win.geometry("1500x500")
 k=0
 
 win.resizable(False, True)
+win.title("Shortest")
 
 info = Label(win,text = "Press left button to add a building (it will be switched to home automatically, for manual switching middle click it)", wraplength=700)
 info.place(x = 0,y = 380)
@@ -98,7 +99,6 @@ def update():
     elif k<=0:info.config(text = "Set k (int,>0) in the text box")
     else:
         ans,fullLen=way(coords,k)
-        ans+=[0]#Логический костыль
         info.config(text="Path is "+"->".join([str(q) for q in ans])+", length is "+str(fullLen))
 
         for q in range(len(ans)-1):
