@@ -7,11 +7,11 @@
 # etc.
 # ?????????????????????????
 
-data = [[float(w) for w in q.split(";")] for q in open("data.csv").read().split("\n")]
+data = [[float(w) for w in q.split(",")] for q in open("data.csv").read().split("\n")]
 
 def way(data,k,Debug=-1):
 	path = []
-	housesDone = 0
+	buildingsDone = 0
 	fullLen=0
 
 	lens = {}
@@ -23,7 +23,7 @@ def way(data,k,Debug=-1):
 								** 2+(data[source][1]-data[destination][1])**2)**.5
 		lens[source] = h
 	if Debug>=1:print("[log]:",lens)
-	while housesDone < len(data)-1:
+	while buildingsDone < len(data)-1:
 		path.append(0)
 		if Debug>=0:print("[info]:now at home")
 		currentHouse = 0
@@ -42,15 +42,14 @@ def way(data,k,Debug=-1):
 					bestDestination = checkHouse
 					bestWeight = currWeight
 				if Debug>=1:print('[log]:',currentHouse,checkHouse,homeWay,currWeight,'|',bestDestination,bestWeight)
-			if Debug>=0:print("[info]:gone to", bestDestination,",", len(data)-1-housesDone, "left")
+			if Debug>=0:print("[info]:gone to", bestDestination,",", len(data)-1-buildingsDone, "left")
 			if bestDestination!=None:
 				fullLen+=lens[currentHouse][bestDestination]
 			if bestDestination == None or bestDestination == 0:break
 			path.append(bestDestination)
-			housesDone += 1
+			buildingsDone += 1
 			currentHouse = bestDestination
 	if Debug>=0:print(path,fullLen)
-	print('yyyyyyyyyyyyy')
 	return path,fullLen
 
 print(way(data=data,k=3,Debug=0))

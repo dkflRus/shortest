@@ -8,7 +8,7 @@ coords=[]
 texts=[]
 
 win=Tk()
-win.geometry("700x500")
+win.geometry("1500x500")
 k=0
 
 win.resizable(False, True)
@@ -20,7 +20,7 @@ info.place(x = 0,y = 380)
 def importCoords():
     global coords
 
-    try:coords = [[float(w) for w in q.split(";")] for q in open(fd.askopenfilename(),"r").read().split("\n")]
+    try:coords = [[float(w) for w in q.split(",")] for q in open(fd.askopenfilename(),"r").read().split("\n")]
     except Exception as e:info.config(text = "Error:"+e)
 
     update()
@@ -29,7 +29,7 @@ ttk.Button(win,text="Import",command=lambda:importCoords()).place(x=145,y=350)
 def exportCoords():
     global coords
 
-    open(fd.askopenfilename(),"w").write("\n".join([";".join([str(w) for w in q]) for q in coords]))
+    open(fd.askopenfilename(),"w").write("\n".join([",".join([str(w) for w in q]) for q in coords]))
 ttk.Button(win,text="Export",command=lambda:exportCoords()).place(x=220,y=350)
 
 def build(event):
@@ -83,19 +83,19 @@ def update():
 
     for q in texts:
         q.destroy()
-    canvas.create_rectangle(0,0,700,350,fill="white",outline="white")
+    canvas.create_rectangle(0,0,1500,350,fill="white",outline="white")
     
     for q in range(0,len(coords)):
         #print(q)
         x,y=coords[q]
-        if q==0:canvas.create_rectangle(x-5,y-5,x+5,y+5,fill="red",outline="red")
-        else:canvas.create_oval(x,y,x,y,outline="black", width=10)
+        if q==0:canvas.create_oval(x,y,x,y,outline="red", width=10)
+        else:canvas.create_rectangle(x-5,y-5,x+5,y+5,fill="black",outline="black")
         texts.append(Label(win,text = str(q)))
         texts[-1].place(x = x,y = y)
 
     if len(coords)==0:info.config(text = "Press left button to add a building (it will be switched to home automatically, for manual switching middle click it)")
     elif len(coords)==1:info.config(text = "Add one more building (to delete building or home right click it)")
-    elif k<=0:info.config(text = "Set k (int,>0) in the text box below")
+    elif k<=0:info.config(text = "Set k (int,>0) in the text box")
     else:
         ans,fullLen=way(coords,k)
         ans+=[0]#Логический костыль
@@ -113,7 +113,7 @@ def updateK(*args):
         update()
     except:k=0
 
-canvas=Canvas(win, width=700, height=350, background="white")
+canvas=Canvas(win, width=1500, height=350, background="white")
 
 canvas.grid(row=0, column=0)
 canvas.bind('<Button-1>', build)
