@@ -6,15 +6,13 @@
 # [x of 3rd house];[y of 3rd house][\n]
 # etc.
 # ?????????????????????????
-##########################
-k = 3
-##########################
-data = [[float(w) for w in q.split(";")]
-        for q in open("data.csv").read().split("\n")]
+
+data = [[float(w) for w in q.split(";")] for q in open("data.csv").read().split("\n")]
 
 def way(data,k,Debug=-1):
 	path = []
 	housesDone = 0
+	fullLen=0
 
 	lens = {}
 	for source in range(len(data)):
@@ -45,11 +43,14 @@ def way(data,k,Debug=-1):
 					bestWeight = currWeight
 				if Debug>=1:print('[log]:',currentHouse,checkHouse,homeWay,currWeight,'|',bestDestination,bestWeight)
 			if Debug>=0:print("[info]:gone to", bestDestination,",", len(data)-1-housesDone, "left")
+			if bestDestination!=None:
+				fullLen+=lens[currentHouse][bestDestination]
 			if bestDestination == None or bestDestination == 0:break
 			path.append(bestDestination)
 			housesDone += 1
 			currentHouse = bestDestination
-	if Debug>=0:print(path)
-	return path
+	if Debug>=0:print(path,fullLen)
+	print('yyyyyyyyyyyyy')
+	return path,fullLen
 
-#print(way(data=data,k=k))
+print(way(data=data,k=3,Debug=0))
