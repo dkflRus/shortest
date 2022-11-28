@@ -7,13 +7,7 @@
 # etc.
 # ?????????????????????????
 
-# data = [[float(w) for w in q.split(",")] for q in open("asasasa.csv").read().split("\n")]
-
-def way(data,k,Debug=-1):
-	path = []
-	buildingsDone = 0
-	fullLen=0
-
+def lensAndClusters(data):
 	lens = {}
 	clusters={}
 	for source in range(len(data)):
@@ -28,6 +22,15 @@ def way(data,k,Debug=-1):
 					and lens[source][destination]\
 						<lens[source][0]:
 					clusters[source].append(destination)
+	return lens,clusters
+
+def way(data,k,Debug=-1):
+	path = []
+	buildingsDone = 0
+	fullLen=0
+
+	lens,clusters=lensAndClusters(data)
+	
 	if Debug>=1:print("[log]:",lens,clusters)
 	while buildingsDone < len(data)-1:
 		path.append(0)
@@ -53,15 +56,13 @@ def way(data,k,Debug=-1):
 				if Debug>=1:print('[log]:',currentHouse,checkHouse,shopWay,currWeight,'|',bestDestination,bestWeight,isEndWay)
 			if not isEndWay and currentHouse*bestDestination  and not bestDestination in clusters[currentHouse]:bestDestination=0
 			if Debug>=0:print("[info]:gone to", bestDestination,",", len(data)-1-buildingsDone, "left")
-			if bestDestination!=None:
-				fullLen+=lens[currentHouse][bestDestination]
-			if bestDestination in [None,0]:break
+			if bestDestination==None:bestDestination=0
+			fullLen+=lens[currentHouse][bestDestination]
+			if bestDestination==0:break
 			buildingsDone+=1
 			path.append(bestDestination)
 			currentHouse = bestDestination
 	if Debug>=0:print(path,fullLen)
 	return path,fullLen
-# def minWay(data,k):
 
-
-# way(data=data,k=7,Debug=10)
+# way(data=[[float(w) for w in q.split(",")] for q in open("asasasa.csv").read().split("\n")],k=7,Debug=10)
