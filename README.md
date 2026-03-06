@@ -64,7 +64,7 @@ The modular thinking behind shortest (separate components for clustering and pat
 shortest/
 ├── shortest.py       # The entire application (clean, rewritten version)
 ├── README.md         # This file
-└── (original legacy code is kept in a separate branch for history)
+└── (original legacy code is kept in older commits)
 ```
 ---
 
