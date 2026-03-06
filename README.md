@@ -17,11 +17,11 @@ The program provides a simple canvas where users can place points, run clusterin
  
 ✨ Features
  
-· Interactive canvas – click to add nodes, drag to move them.
-· Clustering – apply algorithms like K‑Means or DBSCAN to group nodes into clusters (visualised with colours).
-· Shortest‑path computation – select two nodes and find the shortest route using A*, Dijkstra, or a brute‑force solver (BFTest).
-· Real‑time visual feedback – clusters and paths are drawn immediately; you can tweak parameters and see the effect.
-· Simple, clean GUI built with Tkinter (or the framework used, likely Tkinter/PyQt – we can infer from gui.py). Actually, judging by the file gui.py, it's likely Tkinter or Pygame. We can just say "built with Python's standard GUI libraries".
+- Interactive canvas – click to add nodes, drag to move them.
+- Clustering – apply algorithms like K‑Means or DBSCAN to group nodes into clusters (visualised with colours).
+- Shortest‑path computation – select two nodes and find the shortest route using A*, Dijkstra, or a brute‑force solver (BFTest).
+- Real‑time visual feedback – clusters and paths are drawn immediately; you can tweak parameters and see the effect.
+- Simple, clean GUI built with Tkinter (or the framework used, likely Tkinter/PyQt – we can infer from gui.py). Actually, judging by the file gui.py, it's likely Tkinter or Pygame. We can just say "built with Python's standard GUI libraries".
  
 Note: The clustering and pathfinding algorithms are implemented from scratch for educational purposes, not relying on heavy external libraries (except for visualisation).
  
@@ -29,15 +29,15 @@ Note: The clustering and pathfinding algorithms are implemented from scratch for
  
 🛠️ Technologies Used
  
-· Python 3.7+
-· Tkinter (or Pygame) – for the graphical interface
-· NumPy – for efficient numerical operations (likely used in clustering)
-· Custom implementations of:
-  · K‑Means clustering
-  · DBSCAN clustering (maybe)
-  · A* search algorithm
-  · Dijkstra's algorithm
-  · Brute‑force pathfinder (BFTest)
+- Python 3.7+
+- Tkinter (or Pygame) – for the graphical interface
+- NumPy – for efficient numerical operations (likely used in clustering)
+- Custom implementations of:
+  - K‑Means clustering
+  - DBSCAN clustering (maybe)
+  - A* search algorithm
+  - Dijkstra's algorithm
+  - Brute‑force pathfinder (BFTest)
  
 ---
  
@@ -45,8 +45,8 @@ Note: The clustering and pathfinding algorithms are implemented from scratch for
  
 Prerequisites
  
-· Python 3.7 or higher
-· pip installed
+- Python 3.7 or higher
+- pip installed
  
 Installation
  
@@ -65,11 +65,11 @@ Installation
  
 Basic Usage
  
-· Add nodes: left‑click on the canvas.
-· Select nodes for pathfinding: right‑click (or use buttons) – the interface will guide you.
-· Run clustering: choose an algorithm from the dropdown and click "Cluster".
-· Find shortest path: select two nodes and click "Find Path".
-· Clear canvas: use the reset button.
+- Add nodes: left‑click on the canvas.
+- Select nodes for pathfinding: right‑click (or use buttons) – the interface will guide you.
+- Run clustering: choose an algorithm from the dropdown and click "Cluster".
+- Find shortest path: select two nodes and click "Find Path".
+- Clear canvas: use the reset button.
  
 ---
  
@@ -77,10 +77,10 @@ Basic Usage
  
 This project, though early in my journey, taught me several valuable lessons:
  
-· Algorithm implementation – writing clustering and graph search from scratch reinforced my understanding of their inner workings.
-· GUI event handling – managing mouse interactions, real‑time drawing, and user input in a responsive way.
-· Code organisation – separating the GUI logic (gui.py) from algorithmic core (main.py, BFTest.py) helped me appreciate modular design.
-· Performance considerations – brute‑force pathfinding becomes slow with many nodes, highlighting the need for efficient algorithms (hence A*/Dijkstra).
+- Algorithm implementation – writing clustering and graph search from scratch reinforced my understanding of their inner workings.
+- GUI event handling – managing mouse interactions, real‑time drawing, and user input in a responsive way.
+- Code organisation – separating the GUI logic (gui.py) from algorithmic core (main.py, BFTest.py) helped me appreciate modular design.
+- Performance considerations – brute‑force pathfinding becomes slow with many nodes, highlighting the need for efficient algorithms (hence A*/Dijkstra).
  
 Even though the code is now a bit dated and could be optimised, it remains a meaningful milestone in my development as a programmer.
  
@@ -101,10 +101,10 @@ shortest/
  
 While I don't actively maintain this project, potential improvements could include:
 
-· Porting to a more modern GUI framework (e.g., PyQt or Kivy).
-· Adding more clustering algorithms (e.g., hierarchical clustering).
-· Supporting graph import/export (e.g., from CSV).
-· Visualising algorithm steps step‑by‑step for educational purposes.
+- Porting to a more modern GUI framework (e.g., PyQt or Kivy).
+- Adding more clustering algorithms (e.g., hierarchical clustering).
+- Supporting graph import/export (e.g., from CSV).
+- Visualising algorithm steps step‑by‑step for educational purposes.
 
 ---
 
@@ -117,8 +117,3 @@ This project is open source under the MIT License – feel free to use, modify, 
 🙋‍♂️ About the Author
 
 This project was created by Vladislav Sheremet as part of my self‑directed exploration of algorithms and graphical programming. I'm now studying Electrical Engineering and Information Technology in Munich and am passionate about building intelligent software systems. You can find more of my work on GitHub.
-
----
-
-Last updated: November 2022 (project) / March 2026 (description updated for portfolio).
-
