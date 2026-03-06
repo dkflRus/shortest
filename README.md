@@ -85,7 +85,7 @@ This project, though early in my journey, taught me several valuable lessons:
 Even though the code is now a bit dated and could be optimised, it remains a meaningful milestone in my development as a programmer.
  
 ---
- 
+```
 📂 Repository Structure
  
 shortest/
@@ -94,6 +94,7 @@ shortest/
 ├── BFTest.py        # Brute‑force pathfinder (separate module)
 ├── README.md        # This file
 └── (other files as needed)
+```
 ---
  
 🔮 Future Ideas
